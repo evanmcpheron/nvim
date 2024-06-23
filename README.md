@@ -1,5 +1,5 @@
 
-# kickstart.nvim
+# ForestVim
 
 ## Prerequisites
 
@@ -35,7 +35,6 @@ sudo apt-get install ripgrep
 ## Plugins
 #### Harpoon
 [git repo](https://github.com/ThePrimeagen/harpoon)
-`
 
 #### Search Keybindings
 [git repo](https://github.com/folke/which-key.nvim)
