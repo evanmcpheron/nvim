@@ -32,3 +32,13 @@ sudo apt-get install ripgrep
 <space>pf
 ```
 
+## Plugins
+#### Harpoon
+[git repo](https://github.com/ThePrimeagen/harpoon)
+`
+
+#### Search Keybindings
+[git repo](https://github.com/folke/which-key.nvim)
+```
+:WhichKey
+```
