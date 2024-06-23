@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({      'sainnhe/everforest',
+	use({ 'sainnhe/everforest',
 	lazy = false,
 	priority = 1000,
 	config = function()
@@ -22,4 +22,10 @@ return require('packer').startup(function(use)
 		vim.g.everforest_enable_italic = true
 		vim.cmd.colorscheme('everforest')
 	end})
+
+	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use('nvim-treesitter/playground')
+	use('theprimeagen/harpoon')
+	use('mbbill/undotree')
+	use('tpope/vim-fugitive')
 end)
