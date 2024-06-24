@@ -46,6 +46,8 @@ return require('packer').startup(function(use)
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
+    use('nvim-tree/nvim-web-devicons')
+    use{"nvim-pack/nvim-spectre", requires = "nvim-lua/plenary.nvim"}
     use("jiangmiao/auto-pairs")
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
@@ -61,7 +63,7 @@ return require('packer').startup(function(use)
         requires = {
             --- Uncomment the two plugins below if you want to manage the language servers from neovim
             -- {'williamboman/mason.nvim'},
-            -- {'williamboman/mason-lspconfig.nvim'},
+            -- {'williamboman/mason-lspconfig.nvim'}, 
 
             {'neovim/nvim-lspconfig'},
             {'hrsh7th/nvim-cmp'},
