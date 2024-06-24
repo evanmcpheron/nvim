@@ -29,3 +29,5 @@ vim.opt.updatetime = 50
 vim.colorcolumn = "80"
 
 vim.o.foldcolumn = '1'
+vim.cursorlineopt = "10000"
+vim.opt.cursorline = true
