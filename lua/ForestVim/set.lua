@@ -28,4 +28,4 @@ vim.opt.updatetime = 50
 
 vim.colorcolumn = "80"
 
-vim.g.mapleader = "<Space>"
+vim.o.foldcolumn = '1'
