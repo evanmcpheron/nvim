@@ -21,6 +21,15 @@ require("lazy").setup({
         vim.cmd.colorscheme("everforest")
       end,
     },
+    {
+      "nvim-telescope/telescope.nvim",
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules",
+          "package%-lock.json",
+        },
+      },
+    },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
   },
