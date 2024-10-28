@@ -11,7 +11,25 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import/override with your plugins
+    {
+      "neovim/nvim-lspconfig",
+      opts = function(_, opts)
+        opts.servers = opts.servers or {}
+
+        opts.servers.tsserver = {
+          on_attach = function(client, bufnr)
+            local opts = { noremap = true, silent = true }
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<Cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
+          end,
+          flags = {
+            debounce_text_changes = 150,
+          },
+        }
+      end,
+    },
     {
       "sainnhe/everforest",
       lazy = false,
