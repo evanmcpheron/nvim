@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- Add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim",                                    import = "lazyvim.plugins" },
     {
       "neovim/nvim-lspconfig",
       opts = function(_, opts)
@@ -81,8 +81,6 @@ require("lazy").setup({
     },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-
-    -- Configure neo-tree to show line numbers and hidden files
     {
       "nvim-neo-tree/neo-tree.nvim",
       opts = {
@@ -101,9 +99,19 @@ require("lazy").setup({
                 setlocal relativenumber
               ]]
             end,
-          }
+          },
         },
       },
+      init = function()
+        -- Remove the autocommand that opens neo-tree on startup
+        vim.api.nvim_create_autocmd("VimEnter", {
+          callback = function()
+            -- Do nothing on VimEnter to prevent neo-tree from opening
+          end,
+          -- Use a unique group to avoid affecting other autocmds
+          group = vim.api.nvim_create_augroup("DisableNeoTreeAutoOpen", { clear = true }),
+        })
+      end,
     },
   },
   defaults = {
